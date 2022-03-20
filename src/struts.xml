@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.custom.i18n.resources" value="global" />
+	<package name="ASE_Assignment" extends="struts-default">
+		<action name="login" class="Controller.LoginAction"
+			method="execute">
+			<result name="SUCCESS">/WEB-INF/success.jsp</result>
+			<result name="FAILURE">/login.jsp</result>
+		</action>
+		<action name="logout" class="Controller.LoginAction"
+			method="logout">
+			<result name="LOGOUT">/login.jsp</result>
+		</action>
+		<action name="admin" class="Controller.AdminAction">
+			<result name="ADMIN">/WEB-INF/admin.jsp</result>
+			<result name="NOTADMIN">/WEB-INF/success.jsp</result>
+			<result name="NOTAUTHORISED">/login.jsp</result>
+		</action>
+		<action name="locale" class="Controller.LoginAction"
+			method="locale">
+			<result name="LOCALE">/login.jsp</result>
+		</action>
+		<action name="localeAdmin" class="Controller.AdminAction"
+			method="locale">
+			<result name="LOCALE">/WEB-INF/admin.jsp</result>
+		</action>
+	</package>
+</struts>
